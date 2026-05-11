@@ -260,7 +260,19 @@ errorcode=0 curr_state=1 previous_state=0 elapsed_msec=16907701
 ```
 
 ## Enable 2.5G
-2.5G may not be enabled by default on the SFP. Use the following command to enable 2.5 manually:
+
+
+2.5G may not be enabled by default on the SFP. 
+
+Use following command to enable auto selection between 1G and 2.5G 
+Thanks to [tvancott42](https://github.com/Ozark-Connect/NetworkOptimizer)
+```
+ZYXEL# linuxshell
+admin@SFP:~# onu lanpcs 0 1 -1 4 15 1 0 5 0 0 1518 1 3 0 0 0
+admin@SFP:~# echo 'onu lanpcs 0 1 -1 4 15 1 0 5 0 0 1518 1 3 0 0 0' > /var/config/run-syslog.sh
+```
+
+Or use the following command to force enable 2.5 manually:
 ```
 ZYXEL# hal
 Hal# set speed 2.5g mode full
@@ -298,7 +310,7 @@ Furthermore the /etc directory is not writeable because it is a squashfs filesys
 4. copy the hole /etc into /tmp/mount_bind: `cp -r /etc/ /tmp/mount_bind/`
 5. mount the copy for /etc: `mount -o bind /tmp/mount_bind/etc/ /etc/`
 
-Now the /etc is (up to the next reboot) writeable, because it´s redirected to /tmp/mount_bind/etc.
+Now the /etc is (up to the next reboot) writeable, because itÂ´s redirected to /tmp/mount_bind/etc.
 
 For creating the needed fw_env.config there is already a script which is called at boot time (and normally fails because of the read-only access).
 
@@ -310,7 +322,7 @@ It is important that fw_printenv does not complain about checksum errors.
 **If it complains, do not continue!**
 
 Be careful changing values in the uboot-env! Laser calibration data is also stored here, they are individual for every module!
-It´s a good idea to store the output of `fw_printenv` - alternatively make a backup of your mtd1 partition!
+ItÂ´s a good idea to store the output of `fw_printenv` - alternatively make a backup of your mtd1 partition!
 
 1. Set the new password: `fw_setenv remote_account_pwd 1234`
 2. Restore factory-defaults: `http://10.10.1.1/cgi/set_default?rand=0.8890542929500389` - the device responds "1"
