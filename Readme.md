@@ -264,15 +264,14 @@ errorcode=0 curr_state=1 previous_state=0 elapsed_msec=16907701
 
 2.5G may not be enabled by default on the SFP. 
 
+Firmare V2.50(ABVJ.1)b1f has auto negotiation enabled. It can safely be updated via the Web-UI:
+
+Firmares available [here](https://gist.github.com/maurice-w/faeb60bf8201ce70391873bcb9059bc2).
+
 Use following command to enable auto selection between 1G and 2.5G 
 Thanks to [tvancott42](https://github.com/Ozark-Connect/NetworkOptimizer)
-```
-ZYXEL# linuxshell
-admin@SFP:~# onu lanpcs 0 1 -1 4 15 1 0 5 0 0 1518 1 3 0 0 0
-admin@SFP:~# echo 'onu lanpcs 0 1 -1 4 15 1 0 5 0 0 1518 1 3 0 0 0' > /var/config/run-syslog.sh
-```
 
-Or use the following command to force enable 2.5 manually:
+Use the following command to force enable 2.5 manually:
 ```
 ZYXEL# hal
 Hal# set speed 2.5g mode full
