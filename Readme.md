@@ -268,10 +268,8 @@ Firmare V2.50(ABVJ.1)b1f has auto negotiation enabled. It can safely be updated 
 
 Firmares available [here](https://gist.github.com/maurice-w/faeb60bf8201ce70391873bcb9059bc2).
 
-Use following command to enable auto selection between 1G and 2.5G 
-Thanks to [tvancott42](https://github.com/Ozark-Connect/NetworkOptimizer)
 
-Use the following command to force enable 2.5 manually:
+Or use the following command to force enable 2.5 manually:
 ```
 ZYXEL# hal
 Hal# set speed 2.5g mode full
